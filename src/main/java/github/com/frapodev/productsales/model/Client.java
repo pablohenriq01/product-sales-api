@@ -1,6 +1,7 @@
 package github.com.frapodev.productsales.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tb_clients")
 public class Client {
@@ -19,4 +21,6 @@ public class Client {
     private String nameClient;
     @Column(name = "balance_client")
     private BigDecimal balanceClient;
+
+    
 }
