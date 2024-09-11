@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Client {
+public class Products {
     private Long id;
-    private String nameClient;
-    private BigDecimal balanceClient;
+    private String nameProduct;
+    private BigDecimal priceProduct;
 }
