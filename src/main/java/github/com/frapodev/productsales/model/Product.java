@@ -21,4 +21,6 @@ public class Product {
     private String nameProduct;
     @Column(name = "price_product")
     private BigDecimal priceProduct;
+
+    
 }
