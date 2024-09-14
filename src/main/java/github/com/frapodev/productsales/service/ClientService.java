@@ -1,13 +1,8 @@
 package github.com.frapodev.productsales.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import github.com.frapodev.productsales.model.Client;
 import github.com.frapodev.productsales.repository.ClientRepository;
 
@@ -18,7 +13,7 @@ public class ClientService {
     ClientRepository cRepository;
     
     
-    public Client registerClientService (@RequestBody Client client){
+    public Client registerClientService (Client client){
         return cRepository.save(client);
     }
 
@@ -28,6 +23,10 @@ public class ClientService {
     
     public Client findByIDService(Long id){
         return cRepository.findById(id).get();
+    }
+
+    public void deleteClientService(Client client){
+        cRepository.deleteById(client.getId());
     }
 
 
