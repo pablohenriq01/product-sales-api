@@ -54,16 +54,7 @@ public class ClientController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Client> clientUpdate(@PathVariable("id") Long id, @RequestBody Client client) {
-    Client existingClient = clientService.findByIDService(id);
-    if (existingClient == null) {
-        return ResponseEntity.notFound().build();
-    }
-
-    existingClient.setNameClient(client.getNameClient());
-
-    clientService.saveClient(existingClient);
-
-    return ResponseEntity.ok(existingClient);
+        return clientService.clientUpdateService(id, client);
 }
 
 }
