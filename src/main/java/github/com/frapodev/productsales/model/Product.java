@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,6 +22,7 @@ public class Product {
     private String nameProduct;
     @Column(name = "price_product")
     private BigDecimal priceProduct;
-
+    @Column(name = "creation_date")
+    private LocalDate creationDate;
     
 }

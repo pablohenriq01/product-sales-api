@@ -13,7 +13,7 @@ public class ClientService {
     ClientRepository cRepository;
     
     
-    public Client registerClientService (Client client){
+    public Client saveClient (Client client){
         return cRepository.save(client);
     }
 
