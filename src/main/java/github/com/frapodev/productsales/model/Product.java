@@ -23,6 +23,6 @@ public class Product {
     @Column(name = "price_product")
     private BigDecimal priceProduct;
     @Column(name = "creation_date")
-    private LocalDate creationDate;
+    private LocalDate creationDate = LocalDate.now();
     
 }
