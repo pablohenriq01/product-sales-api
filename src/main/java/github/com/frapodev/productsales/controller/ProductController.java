@@ -12,6 +12,8 @@ import javax.swing.text.html.parser.Entity;
 import github.com.frapodev.productsales.model.Product;
 
 import github.com.frapodev.productsales.service.ProductService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,4 +44,8 @@ public class ProductController {
         return productService.findByIDService(id);
     }
     
+    @DeleteMapping("/delete/{id}")
+    public void deleteById (@PathVariable("id") Product product){
+        productService.deleteProductService(product);
+    }
 }
