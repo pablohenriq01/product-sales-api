@@ -17,7 +17,7 @@ public class ClientService {
     ClientRepository cRepository;
     
     
-    public Client saveClient (Client client){
+    public Client saveClientService (Client client){
         return cRepository.save(client);
     }
 
@@ -33,15 +33,16 @@ public class ClientService {
         cRepository.deleteById(client.getId());
     }
 
-    public ResponseEntity<Client> clientUpdateService(@PathVariable("id") Long id, @RequestBody Client client) {
+    public ResponseEntity<Client> clientUpdateService(Long id, Client client) {
     Client existingClient = findByIDService(id);
     if (existingClient == null) {
         return ResponseEntity.notFound().build();
     }
 
     existingClient.setNameClient(client.getNameClient());
+    existingClient.setBalanceClient(client.getBalanceClient());
 
-    saveClient(existingClient);
+    saveClientService(existingClient);
 
     return ResponseEntity.ok(existingClient);
     }

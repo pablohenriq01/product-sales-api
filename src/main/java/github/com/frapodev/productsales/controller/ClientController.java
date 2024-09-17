@@ -31,7 +31,7 @@ public class ClientController {
     @PostMapping("/register")
     public Client registerClients(@RequestBody Client client){
 
-        return clientService.saveClient(client);
+        return clientService.saveClientService(client);
     }
 
     @GetMapping

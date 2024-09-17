@@ -1,12 +1,9 @@
 package github.com.frapodev.productsales.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import github.com.frapodev.productsales.model.Product;
 import github.com.frapodev.productsales.repository.ProductRepository;
 
@@ -32,6 +29,20 @@ public class ProductService {
         pRepository.deleteById(product.getId());
     }
 
-    
+    public ResponseEntity<Product> updateProductService(Long id, Product product) {
+        Product existingProduct = findByIDService(id);
+        if ( existingProduct == null ){
+            return ResponseEntity.notFound().build();
+        } 
+
+        existingProduct.setNameProduct(product.getNameProduct());
+        existingProduct.setPriceProduct(product.getPriceProduct());
+
+        registerProductService(existingProduct);
+        
+        return ResponseEntity.ok(existingProduct);
+    }
+
+
 
 }
