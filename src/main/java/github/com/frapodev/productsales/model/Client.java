@@ -20,6 +20,12 @@ public class Client {
     private String nameClient;
     @Column(name = "balance_client")
     private BigDecimal balanceClient;
+    @Column(name = "fk_id_products_created")
+    @ManyToMany
+    private Product productCreated;
+    @Column(name = "fk_id_purchased_products")
+    @ManyToMany
+    private Product purchaseProduct;
 
     public Client(String nameClient, BigDecimal balanceClient){
         this.nameClient = nameClient;
