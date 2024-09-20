@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,17 +21,11 @@ public class Client {
     private String nameClient;
     @Column(name = "balance_client")
     private BigDecimal balanceClient;
+    @ManyToMany
     @Column(name = "fk_id_products_created")
+    private List<Product> productCreated;
     @ManyToMany
-    private Product productCreated;
     @Column(name = "fk_id_purchased_products")
-    @ManyToMany
-    private Product purchaseProduct;
-
-    public Client(String nameClient, BigDecimal balanceClient){
-        this.nameClient = nameClient;
-        this.balanceClient = balanceClient;
-    }
-    
+    private List<Product> purchaseProduct;
     
 }

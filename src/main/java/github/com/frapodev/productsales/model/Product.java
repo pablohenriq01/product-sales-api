@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,5 +25,7 @@ public class Product {
     private BigDecimal priceProduct;
     @Column(name = "creation_date")
     private LocalDate creationDate = LocalDate.now();
-    
+    @ManyToOne
+    @Column(name = "fk_id_creator_product")
+    private List<Product> creatorProduct ;
 }
